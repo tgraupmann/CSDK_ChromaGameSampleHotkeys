@@ -90,7 +90,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CHECK_CHROMA_LIBRARY_SIGNATURE;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -101,7 +101,8 @@
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>COPY /Y "CChromaEditorLibrary*.*" $(OutDir)</Command>
+      <Command>COPY /Y "*.DLL" $(OutDir)
+COPY /Y "*.PDB" $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -110,7 +111,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CHECK_CHROMA_LIBRARY_SIGNATURE;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -121,7 +122,8 @@
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>COPY /Y "CChromaEditorLibrary*.*" $(OutDir)</Command>
+      <Command>COPY /Y "*.DLL" $(OutDir)
+COPY /Y "*.PDB" $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -132,7 +134,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CHECK_CHROMA_LIBRARY_SIGNATURE;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -149,7 +151,8 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>COPY /Y "CChromaEditorLibrary*.*" $(OutDir)</Command>
+      <Command>COPY /Y "*.DLL" $(OutDir)
+COPY /Y "*.PDB" $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -160,7 +163,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CHECK_CHROMA_LIBRARY_SIGNATURE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -173,7 +176,8 @@
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>COPY /Y "CChromaEditorLibrary*.*" $(OutDir)</Command>
+      <Command>COPY /Y "*.DLL" $(OutDir)
+COPY /Y "*.PDB" $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -198,20 +202,6 @@
     <ClCompile Include="Razer\VerifyLibrarySignature.cpp" />
     <ClCompile Include="Sample.cpp" />
     <ClCompile Include="Razer\ChromaSDKPluginTypes.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CChromaEditorLibrary.dll">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="CChromaEditorLibrary.pdb">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="CChromaEditorLibrary64.dll">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="CChromaEditorLibrary64.pdb">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
