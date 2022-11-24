@@ -598,7 +598,7 @@ int main()
 				--_gSelection;
 			}
 			PrintLegend(supportsStreaming, platform);
-            if (_gSelection > 1)
+			if (_gSelection >= 1)
             {
                 ExecuteEffect(supportsStreaming, platform);
             }
