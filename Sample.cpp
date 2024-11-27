@@ -21,6 +21,24 @@ const float MATH_PI = 3.14159f;
 void ShowEffect1()
 {
 	ChromaAnimationAPI::CoreSetEventName(L"Effect1");
+
+	const wchar_t* animToLoad = L"Animations/MainMenu_Keyboard_BROKEN.chroma";
+	
+	int hotkeys_move[] = {
+		(int)Keyboard::RZKEY::RZKEY_W,
+		(int)Keyboard::RZKEY::RZKEY_A,
+		(int)Keyboard::RZKEY::RZKEY_S,
+		(int)Keyboard::RZKEY::RZKEY_D,
+	};
+
+	const int size = sizeof(hotkeys_move) / sizeof(hotkeys_move[0]);
+
+	ChromaAnimationAPI::SetKeysColorAllFramesRGBName(animToLoad, hotkeys_move, size, 255, 255, 255);
+	ChromaAnimationAPI::SetChromaCustomFlagName(animToLoad, true);
+	ChromaAnimationAPI::SetChromaCustomColorAllFramesName(animToLoad);
+
+	ChromaAnimationAPI::UsePreloadingName(animToLoad, false);
+	ChromaAnimationAPI::PlayAnimationName(animToLoad, true);
 }
 void ShowEffect1ChromaLink()
 {
